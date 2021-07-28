@@ -5,7 +5,8 @@ import { setSearchField, requestRobots } from '../actions';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-import ErrorBoundary from '../components/ErrorBoundry.js';
+import ErrorBoundary from '../components/ErrorBoundary.js';
+import Header from '../components/Header';
 import './App.css';
 
 // parameter state comes from index.js provider store state(rootReducers)
@@ -39,28 +40,20 @@ class App extends Component {
       const filterRobots = robots.filter(robot => {
           return robot.name.toLowerCase().includes(searchField.toLowerCase()); // check if search value exists in robots array. Works for upper and lowercase searches
       });
-      return isPending ? // if loading
-      <h1 className="tc f1">LOADING...</h1> :
-      !filterRobots.length ? 
-      (<div className="tc">
-          <h1 className="tc f1">ROBOT DOESN'T EXIST...</h1>
-          <SearchBox searchChange={onSearchChange} />
-          <Scroll> 
-              <ErrorBoundary> 
-                  <CardList robots={filterRobots}/>
+      return (
+        <div className='tc'>
+        <h1 className='f1'>RoboFriends</h1>
+        <SearchBox searchChange={onSearchChange}/>
+        <Scroll>
+          { isPending ? <h1>Loading</h1> :
+            !filterRobots.length? <h1>ROBOT DOESN'T EXIST...</h1>:
+              <ErrorBoundary>
+                <CardList robots={filterRobots} />
               </ErrorBoundary>
-          </Scroll>
-      </div>) :
-      <div className="tc">
-          <h1 className="mb3 f1">Robofriends</h1>
-          <SearchBox searchChange={onSearchChange} />
-          <Scroll>
-              <ErrorBoundary> 
-                  <CardList robots={filterRobots}/>
-              </ErrorBoundary>
-          </Scroll>
-      </div>
-  }
+          }
+        </Scroll>
+        </div>
+      )}
 }
 
 // action done from mapDispatchToProps will channge state from mapStateToProps
