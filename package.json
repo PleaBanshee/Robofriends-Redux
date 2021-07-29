@@ -1,5 +1,6 @@
 {
-  "name": "robofriends",
+  "homepage": "https://PleaBanshee.github.io/Robofriends-Redux",
+  "name": "Robofriends-Redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
