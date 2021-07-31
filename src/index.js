@@ -7,7 +7,7 @@ import { createLogger } from 'redux-logger';
 import 'tachyons';
 
 import App from './containers/App';
-import serviceWorker from 'service-worker';
+import * as serviceWorker from './serviceWorker';
 import { requestRobots, searchRobots } from './reducers' // reducer functions
 import './index.css';
 
