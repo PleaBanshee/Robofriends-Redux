@@ -1,19 +1,20 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import CounterButton from './CounterButton';
+  
+it('The counter button renders', () => {
+    expect.assertions(1);
+    const mockColor = 'red';
+    expect(shallow(<CounterButton color={mockColor}/>)).toMatchSnapshot();
+});
 
-describe('Counter increments by one', () => {
-  let counter;
-  beforeEach(() => {
-    counter = shallow(<CounterButton />);
-  });
-
-  expect.assertions(2);
-
-  it('The counter increments by one', () => {
-    expect(counter.find('button').text()).toBe('Count: 0');
-    const incButton = counter.find('button');
-    incButton.simulate('click');
-    expect(counter.find('button').text()).toBe('Count: 1');
-  });
+it('The counter increments by one', () => {
+    expect.assertions(3);
+    const mockColor = 'red';
+    const wrapper = shallow(<CounterButton color={mockColor}/>);
+    wrapper.find('[id="counter"]').simulate('click');
+    wrapper.find('[id="counter"]').simulate('click');
+    expect(wrapper.find('[id="counter"]').text()).toEqual('Count: 2');
+    wrapper.find('[id="counter"]').simulate('click');
+    expect(wrapper.find('[id="counter"]').text()).toEqual('Count: 3');
+    expect(wrapper.props().color).toEqual('red');
 });
