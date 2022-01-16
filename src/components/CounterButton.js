@@ -8,7 +8,7 @@ function CounterButton({color}) {
     }
 
     console.log({color,count});
-    return <button color={color} onClick={updateCount}>Count: {count}</button>
+    return <button id='counter' color={color} onClick={updateCount}>Count: {count}</button>
 }
 
 // NB! React.memo keeps a component from receiving state, so don't use it on components that needs state updates
