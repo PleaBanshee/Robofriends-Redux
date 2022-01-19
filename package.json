@@ -19,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test-coverage": "react-scripts test --env=jsdom --coverage -u",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -42,6 +43,12 @@
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/src/index.js",
+      "!<rootDir>/src/registerServiceWorker.js"
     ]
   }
 }
