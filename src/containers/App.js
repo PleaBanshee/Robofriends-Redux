@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 // dispatch the DOM changes to call an action. Note mapStateToProps returns object, mapDispatchToProps returns function
 // the function returns an object then uses connect to change the data from reducers.
 // dispatches searches and requesting the robots
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
     onRequestRobots: () => dispatch(requestRobots())

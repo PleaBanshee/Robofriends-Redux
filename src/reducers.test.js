@@ -1,3 +1,4 @@
+// Reducers take the current state and an action as arguments, and return a new state result
 import {
     CHANGE_SEARCHFIELD,
     REQUEST_ROBOTS_PENDING,
