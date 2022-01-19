@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Main Page successfully 1`] = `
+<div
+  className="tc"
+>
+  <Memo(Header) />
+  <SearchBox />
+  <Scroll>
+    <h1>
+      ROBOT DOESN'T EXIST...
+    </h1>
+  </Scroll>
+</div>
+`;

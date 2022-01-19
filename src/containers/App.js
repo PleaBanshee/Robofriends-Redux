@@ -1,12 +1,10 @@
+// App connects to store and handles state imports, while also rendering the MainPage Component
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; // connects a React component to a Redux store
 import { setSearchField, requestRobots } from '../actions';
 
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundary from '../components/ErrorBoundary.js';
-import Header from '../components/Header';
+import MainPage from '../components/MainPage';
+
 import './App.css';
 
 // parameter state comes from index.js provider store state(rootReducers)
@@ -29,33 +27,11 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-  // no constructor needed, because there is no more direct state, state is returned as props
-
-  componentDidMount() {
-    this.props.onRequestRobots(); // props returned
+  render() {
+     return ( <MainPage {...this.props}/> );
   }
-
-    render() {
-      const { searchField, onSearchChange, robots, isPending } = this.props; // state receives props
-      const filterRobots = robots.filter(robot => {
-          return robot.name.toLowerCase().includes(searchField.toLowerCase()); // check if search value exists in robots array. Works for upper and lowercase searches
-      });
-      return (
-        <div className='tc'>
-        <Header/>
-        <SearchBox searchChange={onSearchChange}/>
-        <Scroll>
-          { isPending ? <h1>Loading</h1> :
-            !filterRobots.length? <h1>ROBOT DOESN'T EXIST...</h1>:
-              <ErrorBoundary>
-                <CardList robots={filterRobots} />
-              </ErrorBoundary>
-          }
-        </Scroll>
-        </div>
-      )}
 }
 
 // action done from mapDispatchToProps will channge state from mapStateToProps
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 // connect is a HOF
