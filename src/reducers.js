@@ -27,7 +27,7 @@ export const searchRobots = (state=initialStateSearch, action={}) => {
 
 const initialStateRobots = {
   robots: [],
-  isPending: true
+  isPending: false
 }
 
 // requesting robots reducer
