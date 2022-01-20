@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import CardList from './CardList';
 
-expect.assertions(1);
 
 it('CardList component must render', () => {
+    expect.assertions(1);
     const mockRobots = [
         {
             id: 1,

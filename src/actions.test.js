@@ -22,11 +22,13 @@ describe('Actions', () => {
     }
 
     it('Should create an action to search', () => {
+        expect.assertions(1);
         expect(actions.setSearchField(text)).toEqual(expectedAction);
     });
 
     // Testing an asynchronous function with dispatch
     it('Handles requesting Robots API', () => {
+        expect.assertions(1);
         const expectedAction = {
             type: REQUEST_ROBOTS_PENDING
         }
@@ -38,6 +40,7 @@ describe('Actions', () => {
 });
   
 describe("Fetch robots action PENDING", () => {
+    expect.assertions(1);
     it("Should creat a Pending action on request Robots", () => {
         const store = mockStore();
         store.dispatch(actions.requestRobots())

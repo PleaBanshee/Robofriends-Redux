@@ -4,6 +4,7 @@ import MainPage from './MainPage';
 let wrapper;
 // runs before each test
 beforeEach(() => {
+    expect.assertions(1);
     const mockProps = {
         onRequestRobots: jest.fn(), // mocks a function
         robots: [],
