@@ -6,7 +6,6 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary.js';
 import Header from '../components/Header';
-import './MainPage.css';
 
 class MainPage extends Component {
   // no constructor needed, because there is no more direct state, state is returned as props

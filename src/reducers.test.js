@@ -14,11 +14,13 @@ describe('searchRobots Reducer',() => {
     };
 
     it('Should return the initial state',() => {
+        expect.assertions(1);
         // empty state, no actions
         expect(reducers.searchRobots(undefined,{})).toEqual({  searchField: "" });
     });
 
     it('Should handle ChANGE_SEARCHFIELD event',() => {
+        expect.assertions(1);
         // empty state, CHANGE_SEARCHFIELD actions
         expect(reducers.searchRobots(initialStateSearch,{
             type: CHANGE_SEARCHFIELD,
@@ -36,10 +38,12 @@ describe('requestRobots Reducer',() => {
     };
 
     it('Should return the initial state when compared to initialStateRobots',() => {
+        expect.assertions(1);
         expect(reducers.requestRobots(undefined,{})).toEqual(initialStateRobots);
     });
 
     it('Should return the initial state when compared to provided values',() => {
+        expect.assertions(1);
         expect(reducers.requestRobots(undefined,{})).toEqual({
             robots: [],
             isPending: false
@@ -47,6 +51,7 @@ describe('requestRobots Reducer',() => {
     });
 
     it('Should handle REQUEST_ROBOTS_PENDING action', () => {
+        expect.assertions(1);
         expect(reducers.requestRobots(initialStateRobots, {
             type: REQUEST_ROBOTS_PENDING,
             payload: {isPending: true}
@@ -57,6 +62,7 @@ describe('requestRobots Reducer',() => {
     });
 
     it('Should handle REQUEST_ROBOTS_SUCCESS action', () => {
+        expect.assertions(1);
         expect(reducers.requestRobots(initialStateRobots, {
             type: REQUEST_ROBOTS_SUCCESS,
             payload: [{
@@ -76,6 +82,7 @@ describe('requestRobots Reducer',() => {
       });
 
       it('Should handle REQUEST_ROBOTS_FAILED action', () => {
+        expect.assertions(1);
         expect(reducers.requestRobots(initialStateRobots, {
             type: REQUEST_ROBOTS_FAILED,
             payload: 'Something went wrong... Try again'
